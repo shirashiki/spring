@@ -26,3 +26,20 @@ Unfortunately, there are limitations to the current parental control application
 - **Allow site white list sharing**: Allow parents, tutors, teachers, anyone who cares about internet access to create and share lists of safe sites.
 - **Block sites which are not in the white list**: kids will not be able to access sites which are not in the white list.
 - **Portability**: allow parents to enable these controls wherever they are.
+
+
+### User Stories
+
+Story | Description
+------------- | ----------------------------------
+001 | Tutor creates his/her user account.
+The account is composed by an e-mail, password
+002 | Tutor adds or removes safe sites
+003 | Tutor adds or removes unsafe sites
+
+
+### Glossary
+
+Term | Meaning
+------------- | ----------------------------------
+Tutor | Represents any adult responsible for the Internet access of a child
