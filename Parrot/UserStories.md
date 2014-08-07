@@ -32,7 +32,7 @@ Unfortunately, there are limitations to the current parental control application
 
 Story | Description
 ------------- | ----------------------------------
-001 | Tutor creates his/her user account.</br> The account is composed by an e-mail, password
+001 | Tutor creates his/her user account.<br> The account is composed by an e-mail, password
 002 | Tutor adds or removes safe sites
 003 | Tutor adds or removes unsafe sites
 
