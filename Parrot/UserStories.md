@@ -30,11 +30,17 @@ Unfortunately, there are limitations to the current parental control application
 
 ### User Stories
 
-Story | Description
-------------- | ----------------------------------
-001 | Tutor creates his/her user account.<br> The account is composed by an e-mail, password
-002 | Tutor adds or removes safe sites
-003 | Tutor adds or removes unsafe sites
+Stories starting with P are related to the project, they do not produce a shippable feature
+
+Status | Story | Description
+------ |------ | ----------------------------------
+Pending | P001 | Check how to create a modal application in Android
+Pending | P002 | Android browser: check how to control navigation to other sites, when user clicks a link
+Done | P003 | Create Android Project testing / learning purposes
+Pending | 001 | Tutor creates his/her user account.<br> The account is composed by an e-mail, password
+Pending | 002 | Tutor adds or removes safe sites
+Pending | 003 | Tutor adds or removes unsafe sites
+
 
 
 ### Glossary
