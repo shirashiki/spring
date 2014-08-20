@@ -26,3 +26,4 @@ Hosting | Heroku | Because we will provide Heroku the functionality to monitor
 - [Sprint Boot cloud deployment: Heroku](http://docs.spring.io/spring-boot/docs/1.1.5.RELEASE/reference/htmlsingle/#cloud-deployment-heroku)
 - [Modify pom.xml to include JDK compiler version](http://stackoverflow.com/questions/16723533/modify-pom-xml-to-include-jdk-compiler-version)
 - [Consuming REST Web Service](http://spring.io/guides/gs/consuming-rest/)
+- [Heroku and github at the same time](http://stackoverflow.com/questions/15231937/heroku-and-github-at-the-same-time)
