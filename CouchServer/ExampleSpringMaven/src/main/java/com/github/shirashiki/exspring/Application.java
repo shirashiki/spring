@@ -1,8 +1,7 @@
-package com.snatsuo.couchserver;
+package com.github.shirashiki.exspring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -24,8 +23,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 //Any class in this package that is annotated with @Controller is going to be
 //automatically discovered and connected to the DispatcherServlet.
 @ComponentScan
-public class Application extends SpringBootServletInitializer{
-	
+public class Application {
+
 	// Tell Spring to launch our app!
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);

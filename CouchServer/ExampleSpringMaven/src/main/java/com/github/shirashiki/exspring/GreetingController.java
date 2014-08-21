@@ -1,4 +1,4 @@
-package com.snatsuo.couchserver.example;
+package com.github.shirashiki.exspring;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -8,12 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-/**
- * A simple controller based on Spring docs, which listens at localhost:8080/greeting.
- * Note that the code automatically returns the content in JSON format
- * @author silvio hirashiki
- *
- */
 public class GreetingController {
 
 	  	private static final String template = "Hello, %s!";
@@ -25,3 +19,4 @@ public class GreetingController {
 	                            String.format(template, name));
 	    }
 }
+
