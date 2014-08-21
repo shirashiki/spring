@@ -31,4 +31,4 @@ Java version | java.runtime.version=1.7 | project root/system.properties
 
 ##### Create App
 
-In the command line, use `heroku create <app name>`
+In the command line, use _heroku create <app name>_
