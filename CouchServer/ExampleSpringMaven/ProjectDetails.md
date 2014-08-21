@@ -18,8 +18,17 @@ Servlet container | Jetty | Needed for Heroku
 
 ### Heroku
 
+#### Settings
+
 These are the Heroku specific settings
 
 Setting | Parameter | File
 ------ |------ | ---------
 Java version | java.runtime.version=1.7 | project root/system.properties
+
+
+#### Heroku for the very impatient (or lazy)
+
+##### Create App
+
+In the command line, use `heroku create <app name>`
