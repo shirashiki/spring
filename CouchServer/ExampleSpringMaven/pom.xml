@@ -2,7 +2,7 @@
   	<!--
   	This file means to be a reference of Spring boot application, built with Maven
   	and to be deployed in Heroku.com. Everything here is considered essential.
-  	Heroku uses Jetty instead of Tomcat
+  	Dependencies here will use the Spring Boot application starters when possible
   	 -->
   	<modelVersion>4.0.0</modelVersion>
   	<groupId>com.github.shirashiki.exspring</groupId>
@@ -13,16 +13,10 @@
   
 
 	<properties>
-	  	<!-- 
-  		Assigns Java version. This configuration needs to be aligned with
-  		system.properties (a file for Heroku) file in the root
-  	 	-->
+	  	<!-- Assigns Java version. This configuration needs to be aligned with
+  		system.properties (a file for Heroku) file in the root -->
     	<java.version>1.7</java.version>
     	
-    	<!-- Jetty: added because was in the spring-boot-starter-jetty 
-    	https://github.com/spring-projects/spring-boot/blob/master/spring-boot-starters/spring-boot-starter-jetty/pom.xml
-    	 -->
-    	<main.basedir>${basedir}/../..</main.basedir>
 	</properties>
   
   	<!-- Spring: Inherit defaults from Spring Boot -->
@@ -41,14 +35,10 @@
         	<artifactId>spring-boot-starter-web</artifactId>
     	</dependency>
     	
-    	<!-- Spring: Jetty dependencies -->
+    	<!-- Spring: Jetty, using a a Spring Boot application starter -->
     	<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-webapp</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-jsp</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jetty </artifactId>
 		</dependency>
 		
 		<!-- Spring Data JPA -->
@@ -63,6 +53,13 @@
         	<artifactId>spring-data-rest-webmvc</artifactId>
     	</dependency>
 		
+		<!-- Spring Boot Test
+			This includes jUnit and testing stuff using a Spring Boot application starter -->
+   		<dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-test</artifactId>
+    	</dependency>
+
 	</dependencies>
 	
 	<build>
