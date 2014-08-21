@@ -15,7 +15,7 @@
  * limitations under the License.
  * 
  */
-package com.github.shirashiki.exspring.test;
+package com.github.shirashiki.exspring.test.integration;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -29,11 +29,11 @@ import com.github.shirashiki.exspring.Greeting;
 /**
  * Tests features in the example application. This will be used for test, and also document what
  * the application does. Put the application to run and then run this as a jUnit test.
- * The name of the class ends in 'Test' so Maven can locate and run it automatically
+ * The name of the class starts with 'Abstract', this will be ignored in build.
  * @author silvio hirashiki
  *
  */
-public class ExampleTest {
+public class AbstractIntegrationTest {
 	
 	private static final String SERVER = "http://localhost:8080";
 	
