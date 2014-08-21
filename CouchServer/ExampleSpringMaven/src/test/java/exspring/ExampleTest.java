@@ -28,7 +28,8 @@ import com.github.shirashiki.exspring.Greeting;
 
 /**
  * Tests features in the example application. This will be used for test, and also document what
- * the application does. Put the application to run and then run this as a jUnit test
+ * the application does. Put the application to run and then run this as a jUnit test.
+ * The name of the class ends in 'Test' so Maven can locate and run it automatically
  * @author silvio hirashiki
  *
  */
