@@ -16,6 +16,7 @@ Build tool | Maven | Needed for Heroku
 Servlet container | Jetty | Needed for Heroku
 
 
+
 ### Heroku
 
 #### Settings
@@ -31,4 +32,7 @@ Java version | java.runtime.version=1.7 | project root/system.properties
 
 ##### Create App
 
-In the command line, use _heroku create <app name>_
+In the command line, use `heroku create <app name>`. Example:
+
+`heroku create exspring`
+ 
