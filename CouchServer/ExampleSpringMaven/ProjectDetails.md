@@ -35,4 +35,9 @@ Java version | java.runtime.version=1.7 | project root/system.properties
 In the command line, use `heroku create <app name>`. Example:
 
 `heroku create exspring`
+
+
+##### Deploying App
+
+https://devcenter.heroku.com/articles/git#deploying-code
  
