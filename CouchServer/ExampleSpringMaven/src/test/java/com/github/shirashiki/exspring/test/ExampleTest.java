@@ -15,7 +15,7 @@
  * limitations under the License.
  * 
  */
-package exspring;
+package com.github.shirashiki.exspring.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
