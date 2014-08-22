@@ -61,7 +61,7 @@ I am using this technique as at this moment each Github repo is hosting multiple
 
 - Select a folder in your workstation: select a folder which will host Heroku repos.
 - In this folder clone the Heroku repo: in the folder, execute `git clone git@heroku.com:exspring.git`. This will create a folder underneath your current, containing the repo.
-- In the first clone, you will be cloning an empty repo. Add a .gitignore file, so you you not upload garbage to heroku.
+- In the first clone, you will be cloning an empty repo. Add a .gitignore file, so you you not upload garbage to heroku. Use the **SAME** gitignore from your git repository, so it will prevent you uploading trash and the generated stuff to Heroku. Heroku will run the Maven build again, so no need to upload jar/war.
 - Copy the contents of your Eclipse project to the repo. Files which are in the root in the Eclipse project need to be in the root in the repo.
 - Go to the repo directory in your machine, then add and push content:
 ```
@@ -69,7 +69,24 @@ git add -A
 git commit -m 'deployment commit example'
 git push origin master
 ```
-- When you do the push, Heroku will build your app.
+
+- When you do the push, Heroku will build your app, first getting the dependencies, then compiling and running your unit tests. Extract of the output:
+```
+       [INFO] Installing /tmp/build_220792ec-ba06-4439-9b9a-634fc87885f2/pom.xml to /app/tmp/cache/.m2/repository/com/github/shirashiki/exspring/exspring/0.0.1-SNAPSHOT/exspring-0.0.1-SNAPSHOT.pom
+       [INFO] ------------------------------------------------------------------------
+       [INFO] BUILD SUCCESS
+       [INFO] ------------------------------------------------------------------------
+       [INFO] Total time: 14.955s
+       [INFO] Finished at: Fri Aug 22 05:03:06 UTC 2014
+       [INFO] Final Memory: 22M/651M
+       [INFO] ------------------------------------------------------------------------
+-----> Discovering process types
+       Procfile declares types -> web
+
+-----> Compressing... done, 79.2MB
+-----> Launching... done, v6
+       http://exspring1.herokuapp.com/ deployed to Heroku
+```
 
 
 **Deployment technique 2**
