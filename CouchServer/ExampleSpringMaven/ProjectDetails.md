@@ -39,9 +39,19 @@ In the command line, use `heroku create <app name>`. Example:
 
 ##### Deploying App
 
-When creating an App, Heroku creates a git repository for it. Basically what you need to do is to push your changes to this repo. In the Heroku Dashboard, select Apps > Your App > Settings. In Info, you will see the git repository Url which is `git@heroku.com:exspring.git`.
+When creating an App, Heroku creates a git repository for it. Basically what you need to do is to push your changes to this repo. In the Heroku Dashboard, select Apps > Your App > Settings. In Info, you will see the git repository Url which is `git@heroku.com:<your app>.git`. In this example, the repo is git@heroku.com:exspring.git.
 
+**Deployment technique 1**
 
+- Select a folder in your workstation: select a folder which will host Heroku repos.
+- In this folder clone the Heroku repo: in the folder, execute `git clone git@heroku.com:exspring.git`. This will create a folder underneath your current, containing the repo.
+- Copy the contents of your Eclipse project to the repo. Files which are in the root in the Eclipse project need to be in the root in the repo.
+- Go to the repo directory in your machine, then add and push content:
+```
+git add -A
+git commit -m 'deployment commit example'
+git push origin master
+```
 
 
 
