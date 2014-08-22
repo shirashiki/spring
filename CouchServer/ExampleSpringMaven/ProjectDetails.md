@@ -43,8 +43,11 @@ When creating an App, Heroku creates a git repository for it. Basically what you
 
 **Deployment technique 1**
 
+I am using this technique as at this moment each Github repo is hosting multiple Eclipse projects.
+
 - Select a folder in your workstation: select a folder which will host Heroku repos.
 - In this folder clone the Heroku repo: in the folder, execute `git clone git@heroku.com:exspring.git`. This will create a folder underneath your current, containing the repo.
+- In the first clone, you will be cloning an empty repo. Add a .gitignore file, so you you not upload garbage to heroku.
 - Copy the contents of your Eclipse project to the repo. Files which are in the root in the Eclipse project need to be in the root in the repo.
 - Go to the repo directory in your machine, then add and push content:
 ```
@@ -52,8 +55,12 @@ git add -A
 git commit -m 'deployment commit example'
 git push origin master
 ```
+- When you do the push, Heroku will build your app.
 
 
+**Deployment technique 2**
 
-https://devcenter.heroku.com/articles/git#deploying-code
+In this scenario, your git repository should contain one project only, so you can add heroku as remote repo and do the push.
+
+http://stackoverflow.com/questions/15231937/heroku-and-github-at-the-same-time
  
