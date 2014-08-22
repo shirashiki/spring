@@ -40,9 +40,20 @@ These are the Heroku specific settings
 Setting | Parameter | File
 ------ |------ | ---------
 Java version | java.runtime.version=1.7 | project root/system.properties
+Heruku Procfile | web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/<generated jar package>.jar | project root/Procfile
 
 
-#### Heroku for the very impatient (or lazy)
+#### Running at Heroku for the very impatient (or lazy)
+
+
+##### Prerequisites
+
+- You created a Spring boot project in Eclipse.
+- You ran at least one Maven build with goal = package.
+- You added files system.properties and Procfile with the settings above.
+- You have your stuff in a proper git repo, other than heroku.
+- Your project passed unit tests, and integration tests which need the application running have name with pattern Abstract*Test.java (so they will be ignored by Maven surefire plugin)
+
 
 ##### Create App
 
@@ -61,7 +72,7 @@ I am using this technique as at this moment each Github repo is hosting multiple
 
 - Select a folder in your workstation: select a folder which will host Heroku repos.
 - In this folder clone the Heroku repo: in the folder, execute `git clone git@heroku.com:exspring.git`. This will create a folder underneath your current, containing the repo.
-- In the first clone, you will be cloning an empty repo. Add a .gitignore file, so you you not upload garbage to heroku. Use the **SAME** gitignore from your git repository, so it will prevent you uploading trash and the generated stuff to Heroku. Heroku will run the Maven build again, so no need to upload jar/war.
+- In the first clone, you will be cloning an empty repo. Copy your .gitignore file from your repo to the heroku repo created, so you you not upload garbage to heroku. Use the **SAME** gitignore from your git repository, so it will prevent you uploading trash and the generated stuff to Heroku. Heroku will run the Maven build again, so no need to upload jar/war.
 - Copy the contents of your Eclipse project to the repo. Files which are in the root in the Eclipse project need to be in the root in the repo.
 - Go to the repo directory in your machine, then add and push content:
 ```
@@ -107,3 +118,5 @@ http://exspring.herokuapp.com/greeting?name=Canadiens
 #### References
 [Deploy and run Spring at Heroku]
 (https://devcenter.heroku.com/articles/getting-started-with-spring-mvc-hibernate#visit-your-application)
+
+[Maven: How do I create a JAR and install it in my local repository?](http://maven.apache.org/guides/getting-started/index.html#How_do_I_create_a_JAR_and_install_it_in_my_local_repository)
