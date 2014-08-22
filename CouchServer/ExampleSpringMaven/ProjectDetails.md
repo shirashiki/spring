@@ -39,5 +39,11 @@ In the command line, use `heroku create <app name>`. Example:
 
 ##### Deploying App
 
+When creating an App, Heroku creates a git repository for it. Basically what you need to do is to push your changes to this repo. In the Heroku Dashboard, select Apps > Your App > Settings. In Info, you will see the git repository Url which is `git@heroku.com:exspring.git`.
+
+
+
+
+
 https://devcenter.heroku.com/articles/git#deploying-code
  
