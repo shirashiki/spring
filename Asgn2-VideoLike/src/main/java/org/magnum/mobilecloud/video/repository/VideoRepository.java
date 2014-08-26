@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * 
  * Silvio:
  * Observe that this repository does not have the REST annotations, so to use this
- * you need a controller
+ * you need a controller. The example in VideoServiceWithOauth2 uses RepositoryRestResource
  * 
  * @author jules
  *
@@ -21,5 +21,8 @@ public interface VideoRepository extends CrudRepository<Video, Long>{
 
 	// Find all videos with a matching title (e.g., Video.name)
 	public Collection<Video> findByName(String title);
+	
+	// Find all videos that are shorter than a specified duration
+	public Collection<Video> findByDurationLessThan(long maxduration);
 	
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import retrofit.http.Body;
@@ -50,7 +51,7 @@ public class VideoSvcController {
 	// The path to search videos by title
 	public static final String VIDEO_TITLE_SEARCH_PATH = VIDEO_SVC_PATH + "/search/findByName";
 	
-	// The path to search videos by title
+	// The path to search videos by duration
 	public static final String VIDEO_DURATION_SEARCH_PATH = VIDEO_SVC_PATH + "/search/findByDurationLessThan";
 	
 	// Video Repository implementation
@@ -88,5 +89,52 @@ public class VideoSvcController {
 		return videoRepo.save(v);
 	}
 
+	
+	/**
+	 * Like a video - NEED TO COMPLETE !!!!!!
+	 */
+	@RequestMapping(value = "/video/{id}/like", method = RequestMethod.GET)
+	public void likeVideo(@PathVariable("id") long id) {
+		// COMPLETE
+	}
+	
+	
+	/**
+	 * Unlike a video - NEED TO COMPLETE !!!!!!
+	 */
+	@RequestMapping(value = "/video/{id}/unlike", method = RequestMethod.GET)
+	public void unlikeVideo(@PathVariable("id") long id) {
+		// COMPLETE
+	}
+
+	// Receives GET requests to /video/search/findByName and returns all Videos
+	// that have a title (e.g., Video.name) matching the "title" request
+	// parameter value that is passed by the client
+	@RequestMapping(value=VideoSvcApi.VIDEO_TITLE_SEARCH_PATH, method=RequestMethod.GET)
+	public @ResponseBody Collection<Video> findByTitle(
+			// Tell Spring to use the "title" parameter in the HTTP request's query
+			// string as the value for the title method parameter
+			@RequestParam(TITLE_PARAMETER) String title
+	){
+		return videoRepo.findByName(title);
+	}
+	
+	// Receives GET requests to /video/search/findByDurationLessThan and returns all Videos
+	// that have a title (e.g., Video.name) matching the "title" request
+	// parameter value that is passed by the client
+	@RequestMapping(value=VideoSvcApi.VIDEO_DURATION_SEARCH_PATH, method=RequestMethod.GET)
+	public @ResponseBody Collection<Video> findByDurationLessThan(
+			// Tell Spring to use the "title" parameter in the HTTP request's query
+			// string as the value for the title method parameter
+			@RequestParam(DURATION_PARAMETER) long maxduration
+	){
+		return videoRepo.findByDurationLessThan(maxduration);
+	}
+	
+	
+	public Collection<String> getUsersWhoLikedVideo(long id){
+		return null;
+	}
+	
 	
 }
