@@ -1,6 +1,11 @@
 package org.magnum.mobilecloud.video;
 
+import java.io.IOException;
+import java.security.Principal;
 import java.util.Collection;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.magnum.mobilecloud.video.ResourceNotFoundException;
 import org.magnum.mobilecloud.video.client.VideoSvcApi;
@@ -14,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 
 import com.google.common.collect.Lists;
 
@@ -31,6 +35,18 @@ import com.google.common.collect.Lists;
  * - Spring does the Oauth stuff
  * - Spring locates this controller, who needs to implement the VideoSvcApi (not a literal implement,
  * as we are not doing implements
+ * 
+ * NICE THINGS TO KNOW:
+ * - Principal and HttpServletResponse are accessible in methods, and don't mess up api signature
+ * If you observe the VideoSvcApi and this controller, you will see that method likeVideo has
+ * these two objects as additional params, and they don't mess up the api.
+ * 
+ * - Returning 404, 400 to client: see likeVideo, here I have 2 ways to do the job.
+ * 
+ * - Principal can be used to get user information:
+ * Any Controller method can take a Principal as a parameter to gain 
+ * access/control over the user who is currently authenticated. Spring will 
+ * automatically fill in this parameter when your Controller's method is invoked:
  * 
  * @author Silvio Hirashiki
  *
@@ -76,34 +92,64 @@ public class VideoSvcController {
 
 	
 	/**
-	 * Like a video - NEED TO COMPLETE !!!!!!
+	 * Like a video
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = VideoSvcApi.VIDEO_SVC_PATH + "/{id}/like", method = RequestMethod.POST)
-	public void likeVideo(@PathVariable("id") long id) {
+	public void likeVideo(@PathVariable("id") long id, Principal p, HttpServletResponse response) throws IOException {
 		
 		Video currentVideo = videoRepo.findOne(id);
 		
 		if (currentVideo==null) {
-			throw new ResourceNotFoundException();
+			response.sendError(HttpServletResponse.SC_NOT_FOUND);
+			return;
 		}
 		
-		// COMPLETE
+		Set<String> likesUsernames = currentVideo.getLikesUsernames();
+		
+		String userName = p.getName();
+		// checks if the user already liked the video
+		if (likesUsernames.contains(userName)) {
+			throw new BadRequestException();
+		} else {
+			// add a new like
+			likesUsernames.add(userName);
+			currentVideo.setLikesUsernames(likesUsernames);
+			videoRepo.save(currentVideo);
+			currentVideo.setLikes(likesUsernames.size());
+			videoRepo.save(currentVideo);
+		}
+		
+
 	}
 	
 	
 	/**
-	 * Unlike a video - NEED TO COMPLETE !!!!!!
+	 * Unlike a video
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = VideoSvcApi.VIDEO_SVC_PATH + "/{id}/unlike", method = RequestMethod.POST)
-	public void unlikeVideo(@PathVariable("id") long id) {
+	public void unlikeVideo(@PathVariable("id") long id, Principal p, HttpServletResponse response) throws IOException {
 		
 		Video currentVideo = videoRepo.findOne(id);
 		
 		if (currentVideo==null) {
-			throw new ResourceNotFoundException();
+			response.sendError(HttpServletResponse.SC_NOT_FOUND);
+			return;
 		}
 		
-		// COMPLETE
+		Set<String> likesUsernames = currentVideo.getLikesUsernames();
+
+		String userName = p.getName();
+		// checks if the user already liked the video
+		if (likesUsernames.contains(userName)) {
+			likesUsernames.remove(userName);
+			currentVideo.setLikesUsernames(likesUsernames);
+			videoRepo.save(currentVideo);
+			currentVideo.setLikes(likesUsernames.size());
+			videoRepo.save(currentVideo);
+
+		} 
 	}
 
 	// Receives GET requests to /video/search/findByName and returns all Videos
@@ -132,8 +178,12 @@ public class VideoSvcController {
 	
 	
 	@RequestMapping(value=VideoSvcApi.VIDEO_SVC_PATH + "/{id}/likedby", method=RequestMethod.GET)
-	public Collection<String> getUsersWhoLikedVideo(@PathVariable("id") long id){
-		return null;
+	public @ResponseBody Collection<String> getUsersWhoLikedVideo(@PathVariable("id") long id){
+		
+		Video currentVideo = videoRepo.findOne(id);
+		
+		return currentVideo.getLikesUsernames();
+		
 	}
 	
 	
