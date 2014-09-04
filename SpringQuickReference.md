@@ -37,6 +37,10 @@ http://stackoverflow.com/questions/10313171/how-to-do-mvn-compile-and-mvn-packag
 
 http://www.h2database.com/html/tutorial.html#spring
 
+-[**Support for Profiles**](http://www.opencredo.com/2014/02/24/experiences-with-spring-boot/_
+-[**App config**](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)
+-[**Multiple datasources**](http://stackoverflow.com/questions/23590855/spring-boot-data-hibernate-different-datasources)
+-[**Data Acess**](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-data-access)
 
 **Creating and using bean definitions**
 http://docs.spring.io/spring-javaconfig/docs/1.0.0.m3/reference/html/creating-bean-definitions.html
