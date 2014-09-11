@@ -41,6 +41,8 @@ http://www.h2database.com/html/tutorial.html#spring
 - [App config](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)
 - [Multiple datasources](http://stackoverflow.com/questions/23590855/spring-boot-data-hibernate-different-datasources)
 - [Data Acess](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-data-access)
+- [Spring Data Multiple databases](http://scattercode.co.uk/2013/11/18/spring-data-multiple-databases/)
+
 
 **Creating and using bean definitions**
 http://docs.spring.io/spring-javaconfig/docs/1.0.0.m3/reference/html/creating-bean-definitions.html
