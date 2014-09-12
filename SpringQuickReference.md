@@ -44,6 +44,13 @@ http://www.h2database.com/html/tutorial.html#spring
 - [Spring Data Multiple databases](http://scattercode.co.uk/2013/11/18/spring-data-multiple-databases/)
 
 
+- READ THIS: http://www.jayway.com/2014/02/16/spring-propertysource/
+
+- Passing property file as a  when running:
+$ java -jar myproject.jar --spring.config.name=other.properties
+
+
+
 **Creating and using bean definitions**
 http://docs.spring.io/spring-javaconfig/docs/1.0.0.m3/reference/html/creating-bean-definitions.html
 
