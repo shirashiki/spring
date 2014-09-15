@@ -42,12 +42,14 @@ http://www.h2database.com/html/tutorial.html#spring
 - [Multiple datasources](http://stackoverflow.com/questions/23590855/spring-boot-data-hibernate-different-datasources)
 - [Data Acess](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-data-access)
 - [Spring Data Multiple databases](http://scattercode.co.uk/2013/11/18/spring-data-multiple-databases/)
-
-
 - READ THIS: http://www.jayway.com/2014/02/16/spring-propertysource/
-
 - Passing property file as a  when running:
 $ java -jar myproject.jar --spring.config.name=other.properties
+- [Jackson object mapper config](http://www.jworks.nl/2013/08/21/register-a-custom-jackson-objectmapper-using-spring-javaconfig/)
+- http://stackoverflow.com/questions/20648706/spring-jackson-joda-time-how-to-specify-the-serialization-deserialization-f
+
+(the last one is promising!!!)
+http://www.joda.org/joda-time/
 
 
 
