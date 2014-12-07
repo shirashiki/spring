@@ -52,6 +52,15 @@ $ java -jar myproject.jar --spring.config.name=other.properties
 http://www.joda.org/joda-time/
 
 
+**Jackson date formats**
+
+- yyyy-MM-dd'T'HH:mm:ss.SSSZ
+- yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+- EEE, dd MMM yyyy HH:mm:ss zzz
+- yyyy-MM-dd
+
+
+
 
 **Creating and using bean definitions**
 http://docs.spring.io/spring-javaconfig/docs/1.0.0.m3/reference/html/creating-bean-definitions.html
